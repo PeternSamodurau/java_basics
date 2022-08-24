@@ -1,75 +1,48 @@
 public class Basket {
+    public static String items = "";   // предметы
+    public static int totalPrice = 0;   // общая стоимость товаров
+    public static double totalWeight = 0; // общая масса всех товаров
 
-    private static int count = 0;
-    private String items = "";
-    private int totalPrice = 0;
-    private int limit;
-
-    public Basket() {
-        increaseCount(1);
-        items = "Список товаров:";
-        this.limit = 1000000;
+    public static void main(String[] args) {
+        add("Колбаса", 76,200.23);
+        add("Молоко",55,1.1);
+        add("Масло",120,500.23);
+        print("Содержимое корзины:");
+        System.out.println("Общая стоимость товаров:" +getTotalPrice());
+        System.out.println("Общий вес товаров:" + getTotalWeight());
+        clear();
+        System.out.println();
+        print("Содержимие корзины:");
+        System.out.println("Общая стоимость товаров:" +getTotalPrice());
+        System.out.println("Общий вес товаров:" + getTotalWeight());
     }
-
-    public Basket(int limit) {
-        this();
-        this.limit = limit;
-    }
-
-    public Basket(String items, int totalPrice) {
-        this();
-        this.items = this.items + items;
-        this.totalPrice = totalPrice;
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public static void increaseCount(int count) {
-        Basket.count = Basket.count + count;
-    }
-
-    public void add(String name, int price) {
-        add(name, price, 1);
-    }
-
-    public void add(String name, int price, int count) {
-        boolean error = false;
-        if (contains(name)) {
-            error = true;
-        }
-
-        if (totalPrice + count * price >= limit) {
-            error = true;
-        }
-
-        if (error) {
-            System.out.println("Error occured :(");
+    public static void add(String name, int price,double weight){            // мтод присв предмету название и цену
+        if (contains(name)){                                   // проверяем есть ли в корзине товар с именем name
             return;
         }
-
-        items = items + "\n" + name + " - " +
-            count + " шт. - " + price;
-        totalPrice = totalPrice + count * price;
+        items = items + "\n" + name +" - цена " + price +" - вес "+ weight;
+        totalPrice = totalPrice + price;
+        totalWeight = totalWeight + weight;
     }
 
-    public void clear() {
+    public static void clear(){                           // метод чистим от предметов
         items = "";
-        totalPrice = 0;
+        totalPrice =0;
+        totalWeight =0;
+    }
+    public static int getTotalPrice(){
+        return totalPrice;                              // возвращает переменную общая цена
+    }
+    public static double getTotalWeight(){                     // возвращает переменную общая масса
+        return totalWeight;
+    }
+    public static boolean contains(String name){          // проверяем есть ли товар
+        return  (items.contains(name));
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public boolean contains(String name) {
-        return items.contains(name);
-    }
-
-    public void print(String title) {
+    public static void print(String title){               //метод печатаетпеременную title-содержимое корзины
         System.out.println(title);
-        if (items.isEmpty()) {
+        if (items.isEmpty()){
             System.out.println("Корзина пуста");
         } else {
             System.out.println(items);
