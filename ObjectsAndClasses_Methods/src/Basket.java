@@ -25,6 +25,7 @@ public class Basket {
         totalWeight = totalWeight + weight;
     }
 
+    
     public static void clear(){                           // метод чистим от предметов
         items = "";
         totalPrice =0;

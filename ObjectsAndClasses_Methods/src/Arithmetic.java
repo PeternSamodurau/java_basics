@@ -5,6 +5,7 @@
         public static int sum = 0;
         public static int mult = 0;
 
+        
         public Arithmetic(int variable1, int variable2) {
             this.variable1 = variable1;
             this.variable2 = variable2;
