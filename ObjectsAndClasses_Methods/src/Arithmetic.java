@@ -1,40 +1,47 @@
-    public class Arithmetic {
-        public static int variable1 = -3;
-        public static int variable2 = -10;
+public class Arithmetic {
+    public int x = 0;
+    public int y = 0;
+    public int sum = 0;
+    public int mult = 0;
 
-        public static int sum = 0;
-        public static int mult = 0;
+    public static void main(String[] args) {
 
-        
-        public Arithmetic(int variable1, int variable2) {
-            this.variable1 = variable1;
-            this.variable2 = variable2;
-        }
+        Arithmetic arithmetic = new Arithmetic(7, 10);
 
-        public static void main(String[] args) {
-            variableSum(sum);
-            variableMultiplication(mult);
-            variableMaxMin();
-        }
+        arithmetic.print("Сумма чисел:" + arithmetic.variableSum());
+        arithmetic.print("Произведение чисел:" + arithmetic.variableMultiplication());
 
-        public static void variableSum(int sum) {
-            sum = variable1 + variable2;
-            System.out.println("Сумма чисел:" + sum);
-        }
+        arithmetic.variableMaxMin();
+    }
 
-        public static void variableMultiplication(int mult) {
-            mult = variable1 * variable2;
-            System.out.println("Произведение чисел:" + mult);
-        }
+    public Arithmetic(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
-        public static void variableMaxMin() {
-            if ((variable1 - variable2) > 0) {
-                System.out.println("Максимальное число:" + variable1 + "\n" + "Минимальное число:" + variable2);
-            } else if ((variable2 - variable1) > 0) {
-                System.out.println("Максимальное число:" + variable2 + "\n" + "Минимальное число:" + variable1);
-            } else {
-                System.out.println("Числа равны");
-            }
+    public int variableSum() {
+        sum = x + y;
+        return sum;
+    }
+
+    public int variableMultiplication() {
+        mult = x * y;
+        return mult;
+    }
+
+    public void print(String title) {
+        System.out.println(title);
+    }
+
+    public void variableMaxMin() {
+        if ((x - y) > 0) {
+            System.out.println("Максимальное число:" + x + "\n" + "Минимальное число:" + y);
+        } else if ((y - x) > 0) {
+            System.out.println("Максимальное число:" + y + "\n" + "Минимальное число:" + x);
+        } else {
+            System.out.println("Числа равны");
         }
     }
+}
+
 
