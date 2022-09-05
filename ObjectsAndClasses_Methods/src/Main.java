@@ -3,8 +3,9 @@ public class Main {
     public static void main(String[] args) {
 
         Basket basket = new Basket();
-        basket.add("Колбаса", 76,1,55.4);
-        basket.add("Молоко", 55,1,54.6);
+        basket.add("Пиво",5);
+        basket.add("Колбаса",20,15);
+        basket.add("Молоко", 10, 5,56.9);
 
         basket.print("Содержимое корзины :");
 

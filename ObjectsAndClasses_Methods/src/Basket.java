@@ -3,6 +3,14 @@ public class Basket {
     private int totalPrice = 0;
     private double totalWeight = 0;
 
+    public void add(String name, int price) {                // меняем количество в классе
+        add(name, price, 5, 0);
+    }
+
+    public void add(String name, int price, int count) {      // меняем количество в Main
+        add(name, price, count, 0);
+    }
+
     public void add(String name, int price, int count, double weight) {
         if (contains(name)) {
             return;
@@ -36,7 +44,7 @@ public class Basket {
         System.out.println(title);
         if (items.isEmpty()) {
             System.out.println("Корзина пуста");
-            } else {
+        } else {
             System.out.println(items);
         }
     }
