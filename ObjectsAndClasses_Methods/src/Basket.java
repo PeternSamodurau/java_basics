@@ -1,23 +1,45 @@
 public class Basket {
     private String items = "";
-    private int totalPrice = 0;
+    private double totalPrice = 0;
     private double totalWeight = 0;
+    private static double totalPriceAllBaskets = 0;
+    private static int totalCountAllBaskets = 0;
 
-    public void add(String name, int price) {                // меняем количество в классе
-        add(name, price, 5, 0);
+    public static int count = 0;
+
+    public  Basket(){
+        count = count +1;
     }
 
-    public void add(String name, int price, int count) {      // меняем количество в Main
-        add(name, price, count, 0);
+    public static double getTotalPriceAllBaskets() {
+
+        return totalPriceAllBaskets;
     }
 
-    public void add(String name, int price, int count, double weight) {
+    public static int getTotalCountAllBaskets() {
+
+        return totalCountAllBaskets;
+    }
+
+    public static double averagePriceBasket(){
+        double averagePriceBasket = totalPriceAllBaskets/totalCountAllBaskets;
+        return averagePriceBasket;
+    }
+
+    public static double averageCostBasket(){
+        double averageCostBasket = totalPriceAllBaskets/count;
+        return averageCostBasket;
+    }
+
+    public void add(String name, double price, int count, double weight) {
         if (contains(name)) {
             return;
         }
         items = items + "\n" + name + " - " + count + " шт " + " - цена " + price + " - вес " + weight;
         totalPrice = totalPrice + price * count;
         totalWeight = totalWeight + weight;
+        Basket.totalCountAllBaskets = Basket.totalCountAllBaskets + count;
+        Basket.totalPriceAllBaskets = Basket.totalPriceAllBaskets + count * price;
     }
 
     public void clear() {
@@ -26,7 +48,7 @@ public class Basket {
         totalWeight = 0;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
 
         return totalPrice;
     }
@@ -37,6 +59,7 @@ public class Basket {
     }
 
     public boolean contains(String name) {
+
         return items.contains(name);
     }
 
