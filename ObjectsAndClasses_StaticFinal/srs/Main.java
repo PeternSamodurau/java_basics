@@ -1,3 +1,7 @@
+package srs;
+
+import srs.*;
+
 public class Main {
     public static void main(String[] args) {
         Computer computer1 = new Computer("NOTEBOOK",

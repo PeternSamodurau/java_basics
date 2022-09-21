@@ -1,3 +1,5 @@
+package srs;
+
 public class Computer {
     private final String name;
     private final String vendor;
