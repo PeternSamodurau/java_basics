@@ -5,7 +5,6 @@ public class Main {
         Company company = new Company();
         Company.setIncome(company, 15_000_000);
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("Для приема работников введите - h");
             System.out.println("Для увольнения работников введите - f");

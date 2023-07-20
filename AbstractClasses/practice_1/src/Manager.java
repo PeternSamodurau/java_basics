@@ -1,4 +1,5 @@
 public class Manager implements Employee {
+
     public int managerId;
     public String nameManager;
     public int managerSalary;

@@ -1,4 +1,5 @@
 public class TopManager implements Employee {
+
     public int topManagerId;
     public String nameTopManager;
     public int topManagerSalary;

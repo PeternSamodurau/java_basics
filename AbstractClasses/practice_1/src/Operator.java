@@ -1,4 +1,5 @@
 public class Operator implements Employee {
+
     public int operatorId;
     public String nameOperator;
     public int operatorSalary;

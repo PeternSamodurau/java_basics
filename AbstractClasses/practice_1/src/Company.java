@@ -69,5 +69,4 @@ public class Company {
                 + "Из них Менеджеров" + " - " + managerCount + "\n"
                 + "Из них Топменеджеров" + " - " + topmanagerCount;
     }
-
 }
