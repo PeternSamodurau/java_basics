@@ -1,33 +1,21 @@
-public class Operator implements Employee {
-
-    public int operatorId;
+public class Operator  {
     public String nameOperator;
-    public int operatorSalary;
+    public  Integer salaryOperator;
 
     public Operator() {
-        this.operatorId = hashCode();
-        this.nameOperator = getClass().getName();
-        this.operatorSalary = getMonthSalary();
+        this.nameOperator = getName();
+        this.salaryOperator = getSalary();
     }
-
-    @Override
-    public int getMonthSalary() {
-        operatorSalary = 10000;
-        return operatorSalary;
+    public int getSalary() {
+        salaryOperator = 5000 + (int) (Math.random() * 1000);
+        return salaryOperator;
     }
-
-    @Override
-    public int returnSalary() {
-        return operatorSalary;
+    public String getName() {
+        return  Names.randomNames().toString();
     }
 
     @Override
     public String toString() {
-
-        return operatorId + " - " + nameOperator + " - " + operatorSalary + "\n";
+        return getClass().getName()+ " " + nameOperator + " - " + salaryOperator  + "\n";
     }
 }
-
-
-
-
